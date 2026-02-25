@@ -1,2 +1,27 @@
-<p>login works!</p>
-<P>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</P>
+<section class="flex flex-col items-center justify-center p-2 w-full">
+    <img src="./images/mainImg.svg" alt="main image">
+    <h1 class="mainTitle">PointCare</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="flex flex-col gap-3">
+            <div class=" flex flex-col gap-0.5 min-h-18">
+                <label for="email" class="label">Email</label>
+                <input pInputText id="email" formControlName="email" placeholder="Enter email" type="text" />
+                <app-error [control]="loginForm.get('email')!"></app-error>
+            </div>
+            <div class="flex flex-col gap-0.5">
+                <label for="password" class="label">Password</label>
+                <input pInputText id="password" formControlName="password" placeholder="Enter password"
+                    type="password" />
+                <app-error [control]="loginForm.get('password')!"></app-error>
+            </div>
+            <div class="flex justify-between">
+                <a class="capitalize option" routerLink="/signup">do not have an account?</a>
+                <a class="capitalize option" routerLink="/forgot-password">forget password?</a>
+            </div>
+            <div class="flex justify-center mt-5">
+
+                <p-button label="Login"></p-button>
+            </div>
+        </div>
+    </form>
+</section>
